@@ -6,7 +6,6 @@ def agregar_movimiento(lista_herramientas):
     while True:
         try: 
             herramienta = input('\nÍngrese el nombre del producto: ').upper()
-            movimiento = input("¿Entrada o salida? (entrada/salida): ").strip().lower()
             cantidad = int(input('Ingrese la cantidad: '))
             fecha = input('Íngrese la fecha de ingreso del producto (AAAA-MM-DD): ')
             precio = float(input('Íngrese el precio del producto: '))

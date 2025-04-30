@@ -1,3 +1,5 @@
 herramienta,cantidad,precio,fecha,cliente
-MARTILLO,6,3500.0,2025-04-28,Kenneth Arias
-BOLSA DE CLAVOS,7,2000.0,2025-04-19,Andres Mena
+DESATORNILLADOR,1,2400.0,2025-02-01,Merbel Arias
+BOLSA DE TORNILLOS,3,1500.0,2025-04-30,Kenneth Arias
+MARTILLO,6,3500.0,2025-04-28,Kenneth Arias Solís
+BOLSA DE CLAVOS,7,2000.0,2025-04-19,Andrés Mena
