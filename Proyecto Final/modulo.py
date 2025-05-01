@@ -6,7 +6,7 @@ def agregar_movimiento(lista_herramientas):
     while True:
         try: 
             herramienta = input('\nÍngrese el nombre del producto: ').upper()
-            movimiento = input('Entrada o salida de herramientas').lower()
+            movimiento = input('Entrada o salida: ').lower()
             cantidad = int(input('Ingrese la cantidad: '))
             fecha = input('Íngrese la fecha de ingreso del producto (AAAA-MM-DD): ')
             precio = float(input('Íngrese el precio del producto: '))
@@ -89,4 +89,26 @@ def analisis_movimientos():
     ventas_por_fecha = df.groupby('fecha')['subtotal'].sum()
     print('\n----------------- VENTAS POR FECHA -----------------')
     print(ventas_por_fecha)
+    
+    stock = pd.Series(dtype=int)
+    for _, row in df.iterrows():
+        nombre = row['herramienta']
+        cant = row['cantidad']
+        mov = row['movimiento'].strip().lower()
+        if pd.isna(cant):
+            continue
+        if nombre not in stock:
+            stock[nombre] = 0
+        if mov == 'entrada':
+            stock[nombre] += cant
+        elif mov == 'salida':
+            stock[nombre] -= cant
+
+    print('\n-------- Revisión de inventario actual --------')
+    for herramienta, cantidad in stock.items():
+        print(f'- {herramienta}: {cantidad} unidades')
+        if cantidad < 5:
+            print(' Pocas existencias.')
+        elif cantidad > 50:
+            print(' Exceso de inventario.')
     
