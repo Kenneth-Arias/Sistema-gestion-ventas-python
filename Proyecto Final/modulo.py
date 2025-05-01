@@ -84,7 +84,6 @@ def analisis_movimientos():
     if 'cliente' in df.columns and not ventas.empty:
         cliente_top = ventas.groupby('cliente')['cantidad'].sum().idxmax()
         print(f'4. Cliente con más compras: {cliente_top}')
-
     
     #Ventas por fecha
     ventas_por_fecha = df.groupby('fecha')['subtotal'].sum()
