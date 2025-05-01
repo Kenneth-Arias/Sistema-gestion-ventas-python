@@ -104,7 +104,7 @@ def analisis_movimientos():
         elif mov == 'salida':
             stock[nombre] -= cant
 
-    print('\n-------- Revisión de inventario actual --------')
+    print('\n-------- REVISION DE STOCK --------')
     for herramienta, cantidad in stock.items():
         print(f'- {herramienta}: {cantidad} unidades')
         if cantidad < 5:
