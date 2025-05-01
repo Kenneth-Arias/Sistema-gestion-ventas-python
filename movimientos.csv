@@ -1,5 +1,9 @@
-herramienta,cantidad,precio,fecha,cliente
-DESATORNILLADOR,1,2400.0,2025-02-01,Merbel Arias
-BOLSA DE TORNILLOS,3,1500.0,2025-04-30,Kenneth Arias
-MARTILLO,6,3500.0,2025-04-28,Kenneth Arias
-BOLSA DE CLAVOS,7,2000.0,2025-04-19,Andrés Mena
+herramienta,cantidad,precio,fecha,cliente,movimiento
+MARTILLO,30,0000.0,2025-01-01,STK,entrada
+DESATORNILLADOR,30,0000.0,2025-01-01,STK,entrada
+BOLSA DE TORNILLOS,30,0000.0,2025-01-01,STK,entrada
+BOLSA DE CLAVOS,30,0000.0,2025-01-01,STK,entrada
+DESATORNILLADOR,1,2400.0,2025-02-01,Merbel Arias,salida
+BOLSA DE TORNILLOS,3,1500.0,2025-04-30,Kenneth Arias,salida
+MARTILLO,6,3500.0,2025-04-28,Kenneth Arias,salida
+BOLSA DE CLAVOS,7,2000.0,2025-04-19,Andrés Mena,salida

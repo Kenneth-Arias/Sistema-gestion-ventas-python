@@ -6,6 +6,7 @@ def agregar_movimiento(lista_herramientas):
     while True:
         try: 
             herramienta = input('\nÍngrese el nombre del producto: ').upper()
+            movimiento = input('Entrada o salida de herramientas').lower()
             cantidad = int(input('Ingrese la cantidad: '))
             fecha = input('Íngrese la fecha de ingreso del producto (AAAA-MM-DD): ')
             precio = float(input('Íngrese el precio del producto: '))
@@ -19,7 +20,8 @@ def agregar_movimiento(lista_herramientas):
             'cantidad' : cantidad,
             'precio' : precio,
             'fecha' : fecha,
-            'cliente' : cliente
+            'cliente' : cliente,
+            'movimiento' : movimiento
         }
          
         lista_herramientas.append(memoria)
@@ -58,21 +60,31 @@ def guardar_movimientos(movimientos):
 def analisis_movimientos():
     df = pd.read_csv('movimientos.csv')
     reader = csv.DictReader('movimentos.csv')
+    
+    df['subtotal'] = df['cantidad'] * df['precio']
+    ventas = df[df['movimiento'].str.lower() == 'salida']
+    
     print('\n----------------- RESUMEN VENTAS -----------------')
     
-    #Total de ventas
-    df['subtotal'] = df['cantidad'] * df['precio']
-    total_ingresos = df['subtotal'].sum()
-    
-    print(f'\n1. TOTAL de ventas {total_ingresos:.2f}')
+    #Total de ingresos por ventas (salida)
+    ventas = df[df['movimiento'].str.lower() == 'salida']
+    total_ventas = ventas['subtotal'].sum()
+    print(f'1. Total de ingresos por ventas (salida): ${total_ventas:.2f}')
+
+    #Total de egresos por compras (entrada)
+    compras = df[df['movimiento'].str.lower() == 'entrada']
+    total_compras = compras['subtotal'].sum()
+    print(f'2. Total de egresos por compras (entrada): ${total_compras:.2f}')
     
     #Herramienta más vendida
     herramienta_top = df.groupby('herramienta')['cantidad'].sum().idxmax()
-    print('2. La herramienta más vendida es : ', herramienta_top)
+    print('3. La herramienta más vendida es : ', herramienta_top)
     
     #Mejor cliente
-    cliente_top = df.groupby('cliente')['cantidad'].sum().idxmax()  
-    print(f'3. Cliente con más compras: {cliente_top}')
+    if 'cliente' in df.columns and not ventas.empty:
+        cliente_top = ventas.groupby('cliente')['cantidad'].sum().idxmax()
+        print(f'4. Cliente con más compras: {cliente_top}')
+
     
     #Ventas por fecha
     ventas_por_fecha = df.groupby('fecha')['subtotal'].sum()
