@@ -90,23 +90,3 @@ def analisis_movimientos():
     print('\n----------------- VENTAS POR FECHA -----------------')
     print(ventas_por_fecha)
     
-    #Stock y alertas de inventario
-    print('\n---------------- STOCK DE INVENTARIO ----------------')
-    
-    stock = pd.Series(dtype=int)
-    for _, row in df.iterrows():
-        nombre = row['nombre']
-        cant = row['cantidad']
-        mov = row['movimiento'].strip().lower()
-        if mov == 'entrada':
-            stock[nombre] += cant
-        elif mov == 'salida':
-            stock[nombre] -= cant
-
-    print('\nRevisión de inventario actual:')
-    for herramienta, cantidad in stock.items():
-        print(f'- {herramienta}: {cantidad} unidades')
-        if cantidad < 5:
-            print('  ⚠️ Pocas existencias.')
-        elif cantidad > 50:
-            print('  ⚠️ Exceso de inventario.')
