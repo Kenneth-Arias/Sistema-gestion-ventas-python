@@ -75,16 +75,16 @@ def analisis_movimientos():
     compras = df[df['movimiento'].str.lower() == 'entrada']
     total_compras = compras['subtotal'].sum()
     print(f'2. Total de egresos por compras (entrada): ${total_compras:.2f}')
-    
+
     #Herramienta más vendida
     herramienta_top = df.groupby('herramienta')['cantidad'].sum().idxmax()
     print('3. La herramienta más vendida es : ', herramienta_top)
-    
+
     #Mejor cliente
     if 'cliente' in df.columns and not ventas.empty:
         cliente_top = ventas.groupby('cliente')['cantidad'].sum().idxmax()
         print(f'4. Cliente con más compras: {cliente_top}')
-    
+
     #Ventas por fecha
     ventas_por_fecha = df.groupby('fecha')['subtotal'].sum()
     print('\n----------------- VENTAS POR FECHA -----------------')
