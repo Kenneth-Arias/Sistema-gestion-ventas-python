@@ -44,11 +44,11 @@ def guardar_movimientos(movimientos):
         if os.path.exists('ventas.csv'):
             #si el archivo existe agrego Append  'A'
             with open('movimientos.csv','a',newline='',encoding='utf-8') as archivo:
-                guardar = csv.DictWriter(archivo,fieldnames=['herramienta','cantidad','precio','fecha', 'cliente'])
+                guardar = csv.DictWriter(archivo,fieldnames=['herramienta','cantidad','precio','fecha', 'cliente', 'movimiento'])
                 guardar.writerows(movimientos)        
         else: #Si no existe abro en modo escritura 'W'
             with open('movimientos.csv','w',newline='',encoding='utf-8') as archivo:
-                guardar = csv.DictWriter(archivo,fieldnames=['herramienta','cantidad','precio','fecha', 'cliente'])
+                guardar = csv.DictWriter(archivo,fieldnames=['herramienta','cantidad','precio','fecha', 'cliente', 'movimiento'])
                 guardar.writeheader()
                 guardar.writerows(movimientos)
                 
