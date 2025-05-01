@@ -14,9 +14,8 @@ def pause():
     
 
 def limpiar_pantalla():
-    """Limpia la pantalla de la terminal en ejecución"""
     os.system('cls' if os.name == 'nt' else 'clear')
-    
+
 
 #Menú principal
 def menu():
