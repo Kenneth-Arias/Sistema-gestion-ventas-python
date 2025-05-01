@@ -9,8 +9,8 @@ En este programa se a implementado un menú en el que al abrir el programa mostr
 tales como: realizar un movimiento/venta, guardar los datos introducidos en un archivo .csv y analizar los datos ya introducidos,
 datos como el cliente al que más se le a vendido, el producto más popular o más vendido, y los ingresos de acuerdo con la fecha.
 
-La ejecucion del programa es muy sencillo, en este a la hora de ejecutarlo mostrara un texto, en el que se indicara apretar ENTER para continuar
-a continuacion se mostrará un menu en el que pedir al usuario introducir un numero segun la opcion que quiera utilizar
+La ejecucion del programa es muy sencillo, en este a la hora de ejecutarlo mostrara un texto, en el que se indicara apretar ENTER para continuar,
+a continuacion se mostrará un menu en el que pide al usuario introducir un número según la opcion que quiera utilizar,
 si desea ingresar un nuevo movimiento (venta), se le pedirá al usuario introducir los datos segun como se van pidiendo
 una vez realizado el proceso se le mostará una lista de las ventas ya introducidas y si desea guardarla en un archivo
 la segunda opcion le permitiras guardar esa informacion en un archivo .csv nombrado movimientos en le que se podra acceder si desea con la siguiente opcion
